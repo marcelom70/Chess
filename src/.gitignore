@@ -1,0 +1,16 @@
+# Build Folders 
+[bB]in/
+[oO]bj/
+
+# user preferences
+*.suo
+*.user
+
+# nuget
+packages/
+
+# resharper
+_ReSharper*
+
+# mstest test results
+TestResults

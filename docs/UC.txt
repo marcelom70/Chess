@@ -1,0 +1,29 @@
+Fluxo principal:
+1. Jogador solicita ao sistema um novo jogo, informando a versão, seu ID e o ID do seu oponente
+2. Sistema valida a versão informada contra sua própria
+3. Sistema verifica que o oponente ainda não iniciou o jogo
+4. Sistema informa que as peças do jogador serão as brancas
+5. Sistema inicia um novo objeto board e entra em modo de aguardando segundo jogador
+6. Sistema informa jogador que está em aguardo e gera uma cópia do objeto board no client
+7. Sistema informa jogador que o oponente aceitou o jogo.
+8. Jogador realiza a jogada.
+9. Sistema valida a jogada e informa o oponente sobre a jogada.
+10. Retorna para o passo 8 do fluxo principal.
+
+Fluxo alternativo 1:
+Este fluxo se inicia após o passo 2 do fluxo principal
+1. Sistema informa que a versão do sistema é incompatível
+2. Caso de uso é finalizado
+
+Fluxo alternativo 2:
+Este fluxo se inicia após o passo 3 do fluxo principal
+1. Sistema informa que o oponente já iniciou o jogo
+2. Sistema informa que as peças do jogador serão as pretas
+3. Sistema informa o oponente que o jogo já pode ser iniciado
+4. Sistema informa o jogador que a jogada inicial foi realizada
+5. Retorna para o passo 8 do fluxo principal.
+
+Fluxo alternativo 3:
+Esse fluxo se inicia após o passo 8 do fluxo principal
+1. Sistema identifica que a jogada produz cheque-mate.
+2. Sistema finaliza o jogo.
