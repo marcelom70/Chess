@@ -1,42 +1,56 @@
-﻿using Chess.Domain;
+﻿using Chess.Application.Contracts;
+using Chess.Application.Contracts.DTOs;
+using Chess.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Chess.Domain.Entities;
 using Chess.Domain.Repositories;
 
 namespace Chess.Application
 {
-    public class ChessFacade
+    public class ChessFacade : IChessFacade
     {
-        private IMatchRepository _repository;
+        private readonly IMatchRepository _repository;
 
         public ChessFacade(IMatchRepository repository)
         {
             _repository = repository;
         }
 
-        public Guid SetUpMatch() {
-            var match = new Match(); //cria um novo match
+        public Guid SetUpMatch(PlayerDTO whitePlayer, PlayerDTO blackPlayer) {
             
-            match.InitializeBoard();
+            //comentarios sao apenas linhas de pensamento
 
-            match.DefinePlayer(); //definir nome do jogador/cor peças
+            //converter DTOs para entidades
 
-            var matchId = _repository.Save(match); 
-            //outra alternativa eh recuperar identificador natural, como o nome dos jogadores do jogo
-            //e sempre que for fazer um movimento, utiliza-los para recuperar o jogo 
+            //validar as entidades?
 
-            return matchId;
+            //novo match
+            var match = new Match(); 
+
+            //aqui ele deve saber setar a posicao inicial das pecas
+            //match.InitializeBoard();
+
+            //passar os players? ou devia ser feito no constructor do match?
+            //match.DefinePlayer(); 
+
+
+            _repository.Save(match); 
+
+
+            return match.Id;
         }
 
         public void DoMove(string command, Guid matchId) { 
         
             //command like "e2e4" notacao completa ou abreviada
 
-            var match = _repository.Get(matchId);
-            match.Move(command);
+            var qbe = new Match() {Id = matchId};
+            var match = _repository.Get(qbe).FirstOrDefault();
+            if (match != null) match.Move(command);
 
             //retornar de alguma forma - ilegal move, move ok, etc
         }

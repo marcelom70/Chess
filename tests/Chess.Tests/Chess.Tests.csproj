@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EasyArchitecture">
-      <HintPath>..\..\packages\EasyArchitecture.1.0.4766\lib\net40\EasyArchitecture.dll</HintPath>
+      <HintPath>..\..\packages\EasyArchitecture.1.0.4777\lib\net40\EasyArchitecture.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -46,11 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ChessFacadeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Chess.Application\Chess.Application.csproj">
+      <Project>{A47E80D3-E0C5-4F83-9851-89D198455173}</Project>
+      <Name>Chess.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Chess.Domain\Chess.Domain.csproj">
+      <Project>{8f2d7a83-e652-435f-87df-7428560e2524}</Project>
+      <Name>Chess.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Chess.Infrastructure\Chess.Infrastructure.csproj">
+      <Project>{0ab6a9a6-c94e-4d94-9cc2-579475572340}</Project>
+      <Name>Chess.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

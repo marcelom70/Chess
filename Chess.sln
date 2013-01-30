@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Application", "src\Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Tests", "tests\Chess.Tests\Chess.Tests.csproj", "{E68035BA-258E-4E46-9C2F-5414AE9FCA72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Infrastructure", "src\Chess.Infrastructure\Chess.Infrastructure.csproj", "{0AB6A9A6-C94E-4D94-9CC2-579475572340}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,16 @@ Global
 		{E68035BA-258E-4E46-9C2F-5414AE9FCA72}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E68035BA-258E-4E46-9C2F-5414AE9FCA72}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E68035BA-258E-4E46-9C2F-5414AE9FCA72}.Release|x86.ActiveCfg = Release|Any CPU
+		{0AB6A9A6-C94E-4D94-9CC2-579475572340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AB6A9A6-C94E-4D94-9CC2-579475572340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AB6A9A6-C94E-4D94-9CC2-579475572340}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0AB6A9A6-C94E-4D94-9CC2-579475572340}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0AB6A9A6-C94E-4D94-9CC2-579475572340}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0AB6A9A6-C94E-4D94-9CC2-579475572340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AB6A9A6-C94E-4D94-9CC2-579475572340}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AB6A9A6-C94E-4D94-9CC2-579475572340}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0AB6A9A6-C94E-4D94-9CC2-579475572340}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0AB6A9A6-C94E-4D94-9CC2-579475572340}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
