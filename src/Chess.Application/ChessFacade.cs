@@ -9,42 +9,30 @@ using System.Threading.Tasks;
 using Chess.Domain.Entities;
 using Chess.Domain.Repositories;
 using EasyArchitecture.Translation;
+using EasyArchitecture.Validation;
 
 namespace Chess.Application
 {
     public class ChessFacade : IChessFacade
     {
         private readonly IMatchRepository _repository;
-        private Chess.Domain.Player _whitePlayer;
-        private Chess.Domain.Player _blackPlayer;
 
         public ChessFacade(IMatchRepository repository)
         {
             _repository = repository;
         }
 
-        public Guid SetUpMatch(PlayerDTO whitePlayer, PlayerDTO blackPlayer) {
-            
-            //comentarios sao apenas linhas de pensamento
+        public Guid SetUpMatch(PlayerDTO whitePlayerDTO, PlayerDTO blackPlayerDTO)
+        {
+            var whitePlayer = Translator.This(whitePlayerDTO).To<Player>();
+            var blackPlayer = Translator.This(blackPlayerDTO).To<Player>();
 
-            //converter DTOs para entidades
-            _whitePlayer = Translator.This(whitePlayer).To<Chess.Domain.Player>();
-            _blackPlayer = Translator.This(blackPlayer).To<Chess.Domain.Player>();
-
-            //validar as entidades?
-
-            //novo match
-            var match = new Match(_whitePlayer, _blackPlayer); 
+            var match = new Match(whitePlayer, blackPlayer); 
 
             //aqui ele deve saber setar a posicao inicial das pecas
             match.InitializeBoard();
 
-            //passar os players? ou devia ser feito no constructor do match?
-            //match.DefinePlayer(); 
-
-
             _repository.Save(match); 
-
 
             return match.Id;
         }
