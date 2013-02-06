@@ -6,14 +6,24 @@ namespace Chess.Domain.Entities
     public class Match
     {
         public Board Board {get;set;}
-        public Player Player{ get; set; } 
+        public Player WhitePlayer{ get; set; }
+        public Player BlackPlayer { get; set; }
         public IList<Move> Moves { get; set; }
+
+        public Match()
+        { }
+
+        public Match(Player whitePlayer, Player blackPlayer)
+        {
+            WhitePlayer = whitePlayer;
+            BlackPlayer = blackPlayer;
+        }
 
         public Guid Id { get; set; }
 
         public void InitializeBoard()
         {
-            throw new System.NotImplementedException();
+            Board = new Board();
         }
 
         public void DefinePlayer()

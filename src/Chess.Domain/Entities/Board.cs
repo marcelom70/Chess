@@ -6,5 +6,10 @@ namespace Chess.Domain
     {
         public IList<Square> Squares { get; set; }
         public IList<Piece> Pieces { get; set; }
+
+        public Board()
+        { }
+
+
     }
 }

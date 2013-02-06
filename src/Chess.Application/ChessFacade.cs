@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Chess.Domain.Entities;
 using Chess.Domain.Repositories;
+using EasyArchitecture.Translation;
 
 namespace Chess.Application
 {
     public class ChessFacade : IChessFacade
     {
         private readonly IMatchRepository _repository;
+        private Chess.Domain.Player _whitePlayer;
+        private Chess.Domain.Player _blackPlayer;
 
         public ChessFacade(IMatchRepository repository)
         {
@@ -25,14 +28,16 @@ namespace Chess.Application
             //comentarios sao apenas linhas de pensamento
 
             //converter DTOs para entidades
+            _whitePlayer = Translator.This(whitePlayer).To<Chess.Domain.Player>();
+            _blackPlayer = Translator.This(blackPlayer).To<Chess.Domain.Player>();
 
             //validar as entidades?
 
             //novo match
-            var match = new Match(); 
+            var match = new Match(_whitePlayer, _blackPlayer); 
 
             //aqui ele deve saber setar a posicao inicial das pecas
-            //match.InitializeBoard();
+            match.InitializeBoard();
 
             //passar os players? ou devia ser feito no constructor do match?
             //match.DefinePlayer(); 
