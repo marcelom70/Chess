@@ -2,10 +2,7 @@
 using Chess.Application.Contracts.DTOs;
 using Chess.Domain;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Chess.Domain.Entities;
 using Chess.Domain.Repositories;
 using EasyArchitecture.Translation;
@@ -26,6 +23,9 @@ namespace Chess.Application
         {
             var whitePlayer = Translator.This(whitePlayerDTO).To<Player>();
             var blackPlayer = Translator.This(blackPlayerDTO).To<Player>();
+
+            Validator.This(whitePlayer).IsValid();
+            Validator.This(blackPlayer).IsValid();
 
             var match = new Match(whitePlayer, blackPlayer); 
 
