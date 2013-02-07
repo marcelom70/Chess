@@ -29,8 +29,7 @@ namespace Chess.Application
 
             var match = new Match(whitePlayer, blackPlayer); 
 
-            //aqui ele deve saber setar a posicao inicial das pecas
-            match.InitializeBoard();
+            match.Initialize();
 
             _repository.Save(match); 
 
