@@ -4,11 +4,11 @@ namespace Chess.Domain.Entities
     {
         public string Colour { get; protected set; }
 
-        public Square Square { get; private set; }
+        public string Position { get; protected set; }
 
-        public void AssignSquare(Square square)
+        public void AssignPosition(string position)
         {
-            this.Square = square;
+            this.Position = position;
         }
     }
 }

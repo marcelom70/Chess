@@ -1,6 +1,6 @@
 using System;
 
-namespace Chess.Domain
+namespace Chess.Domain.Entities
 {
     public class Player
     {

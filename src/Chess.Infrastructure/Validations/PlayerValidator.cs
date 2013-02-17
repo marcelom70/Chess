@@ -1,5 +1,6 @@
 ﻿using System;
 using Chess.Domain;
+using Chess.Domain.Entities;
 using EasyArchitecture.Validation.Plugin.BultIn;
 
 namespace Chess.Infrastructure.Validations
