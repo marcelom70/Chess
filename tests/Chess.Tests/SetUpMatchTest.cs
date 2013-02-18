@@ -54,5 +54,25 @@ namespace Chess.Tests
             Assert.That(() => facade.SetUpMatch(whitePlayer, blackPlayer), Throws.Exception);
             //Assert.That(() => facade.SetUpMatch(whitePlayer, blackPlayer), Throws.TypeOf<InvalidEntityException>());
         }
+
+        [Test]
+        public void Can_create_match_with_a_custom_setup_board()
+        {
+            var facade = Container.Resolve<IChessFacade>();
+
+            var blackPlayer = new PlayerDTO() { Name = "henriquericcio", Id = Guid.NewGuid() };
+            var whitePlayer = new PlayerDTO() { Name = "marcelom", Id = Guid.NewGuid() };
+
+            //peao branco em e4 (equivalente ao primeiro lance 1e4)
+            //const string boardSetup = "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR";
+            const string boardSetup = "rnbqkbnr/pppppppp/8/8/P2P3P/8/1PP1PPP1/RNBQKBNR";
+
+            var matchId = facade.SetUpMatch(whitePlayer, blackPlayer,boardSetup);
+
+            //encontrar uma forma de verificar status
+
+            Assert.That(matchId, Is.Not.EqualTo(Guid.Empty));
+        }
+
     }
 }

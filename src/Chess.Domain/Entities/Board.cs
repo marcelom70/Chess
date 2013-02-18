@@ -8,48 +8,62 @@ namespace Chess.Domain.Entities
     {
         private readonly IList<Piece> _pieces = new List<Piece>();
         //HACK: mantive para provavel futura validacao de boundaries do movimento
-        //private readonly int[] _rows = new[] { 1, 2, 3, 4, 5, 6, 8 };
-        //private readonly char[] _columns = new[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
+        private readonly int[] _rowPositions = new[] { 1, 2, 3, 4, 5, 6,7, 8 };
+        private readonly char[] _columnPositions = new[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' };
 
 
-        public Board()
+        public Board(string boardConfiguration)
         {
-            var colour = "white";
-            _pieces.Add(new Rook(colour, "A1"));
-            _pieces.Add(new Knight(colour, "B1"));
-            _pieces.Add(new Bishop(colour, "C1"));
-            _pieces.Add(new Queen(colour, "D1"));
-            _pieces.Add(new King(colour, "E1"));
-            _pieces.Add(new Bishop(colour, "F1"));
-            _pieces.Add(new Knight(colour, "G1"));
-            _pieces.Add(new Rook(colour, "H1"));
-            _pieces.Add(new Pawn(colour, "A2"));
-            _pieces.Add(new Pawn(colour, "B2"));
-            _pieces.Add(new Pawn(colour, "C2"));
-            _pieces.Add(new Pawn(colour, "D2"));
-            _pieces.Add(new Pawn(colour, "E2"));
-            _pieces.Add(new Pawn(colour, "F2"));
-            _pieces.Add(new Pawn(colour, "G2"));
-            _pieces.Add(new Pawn(colour, "H2"));
+            if (string.IsNullOrEmpty(boardConfiguration))
+                boardConfiguration = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
 
-            colour = "black";
-            _pieces.Add(new Rook(colour, "A8"));
-            _pieces.Add(new Knight(colour, "B8"));
-            _pieces.Add(new Bishop(colour, "C8"));
-            _pieces.Add(new Queen(colour, "D8"));
-            _pieces.Add(new King(colour, "E8"));
-            _pieces.Add(new Bishop(colour, "F8"));
-            _pieces.Add(new Knight(colour, "G8"));
-            _pieces.Add(new Rook(colour, "H8"));
-            _pieces.Add(new Pawn(colour, "A7"));
-            _pieces.Add(new Pawn(colour, "B7"));
-            _pieces.Add(new Pawn(colour, "C7"));
-            _pieces.Add(new Pawn(colour, "D7"));
-            _pieces.Add(new Pawn(colour, "E7"));
-            _pieces.Add(new Pawn(colour, "F7"));
-            _pieces.Add(new Pawn(colour, "G7"));
-            _pieces.Add(new Pawn(colour, "H7"));
+            var rowCount = 7;
+            var columnCount = 0;
 
+            foreach (var row in boardConfiguration.Split('/'))
+            {
+                foreach (var pieceChar in row.ToCharArray())
+                {
+                    if(char.IsNumber(pieceChar))
+                    {
+                        columnCount += int.Parse(pieceChar.ToString());
+                        continue;
+                    }
+
+                    var colour = char.IsLower(pieceChar) ? "black" : "white";
+
+                    var ajustedPieceChar = char.ToUpperInvariant(pieceChar);
+
+                    var position = _columnPositions[columnCount].ToString() + _rowPositions[rowCount].ToString();
+
+                    Piece piece = null;
+                    switch (ajustedPieceChar )
+                    {
+                        case 'R':
+                            piece = new Rook(colour, position);
+                            break;
+                        case 'N':
+                            piece = new Knight(colour, position);
+                            break;
+                        case 'B':
+                            piece = new Bishop(colour, position);
+                            break;
+                        case 'Q':
+                            piece = new Queen(colour, position);
+                            break;
+                        case 'K':
+                            piece = new King(colour, position);
+                            break;
+                        case 'P':
+                            piece = new Pawn(colour, position);
+                            break;
+                    }
+                    _pieces.Add(piece);
+                    columnCount ++;
+                }
+                columnCount = 0;
+                rowCount--;
+            }
         }
 
         public Piece GetPiece(string position)

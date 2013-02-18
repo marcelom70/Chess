@@ -20,9 +20,9 @@ namespace Chess.Domain.Entities
             BlackPlayer = blackPlayer;
         }
 
-        public void Initialize()
+        public void Initialize(string boardConfiguration)
         {
-            _board = new Board();
+            _board = new Board(boardConfiguration);
         }
 
         public void Move(string command)
