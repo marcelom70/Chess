@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyArchitecture">
-      <HintPath>..\..\packages\EasyArchitecture.1.0.4777\lib\net40\EasyArchitecture.dll</HintPath>
+    <Reference Include="EasyArchitecture, Version=1.0.4797.34072, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EasyArchitecture.1.0.4797\lib\net40\EasyArchitecture.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

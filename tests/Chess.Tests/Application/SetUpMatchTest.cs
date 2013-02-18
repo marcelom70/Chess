@@ -5,7 +5,7 @@ using EasyArchitecture.Configuration;
 using EasyArchitecture.IoC;
 using NUnit.Framework;
 
-namespace Chess.Tests
+namespace Chess.Tests.Application
 {
     [TestFixture]
     public class SetUpMatchTest

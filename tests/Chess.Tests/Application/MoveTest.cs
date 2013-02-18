@@ -3,10 +3,9 @@ using Chess.Application.Contracts;
 using Chess.Application.Contracts.DTOs;
 using EasyArchitecture.Configuration;
 using EasyArchitecture.IoC;
-using EasyArchitecture.Validation.Instance;
 using NUnit.Framework;
 
-namespace Chess.Tests
+namespace Chess.Tests.Application
 {
     [TestFixture]
     public class MoveTest

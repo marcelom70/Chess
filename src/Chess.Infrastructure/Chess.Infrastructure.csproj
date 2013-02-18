@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyArchitecture">
-      <HintPath>..\..\packages\EasyArchitecture.1.0.4777\lib\net40\EasyArchitecture.dll</HintPath>
+    <Reference Include="EasyArchitecture, Version=1.0.4797.34072, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EasyArchitecture.1.0.4797\lib\net40\EasyArchitecture.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,13 +48,13 @@
     <Compile Include="Validations\PlayerValidator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Chess.Domain\Chess.Domain.csproj">
       <Project>{8F2D7A83-E652-435F-87DF-7428560E2524}</Project>
       <Name>Chess.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
