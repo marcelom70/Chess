@@ -33,7 +33,7 @@ namespace Chess.Tests.Application
         {
             var facade = Container.Resolve<IChessFacade>();
             const string impossibleMove = "e4e8";
-            Assert.That(()=> facade.DoMove(impossibleMove, _matchId),Throws.Exception);
+            Assert.That(()=> facade.DoMove(impossibleMove, _matchId)==null,Throws.Exception);
         }
     }
 }

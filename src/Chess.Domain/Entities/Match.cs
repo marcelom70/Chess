@@ -25,7 +25,7 @@ namespace Chess.Domain.Entities
             _board = new Board(boardConfiguration);
         }
 
-        public void Move(string command)
+        public string Move(string command)
         {
             command = command.ToUpperInvariant();
 
@@ -42,12 +42,15 @@ namespace Chess.Domain.Entities
             var piece = _board.GetPiece(orign);
 
             //se nao houver peca?
+            if (piece == null)
+                throw new Exception();
 
             //verificar se a peca aceita seu destino hehe
-            //piece.AcceptDestiny(destination);
+            if (!piece.AcceptDestiny((string)destination))
+                throw new Exception();
 
             //verificar se ha outra peca no caminho do movimento (knight exception)
-
+            return command;
             //...
 
             //adicionar à lista de movimentos

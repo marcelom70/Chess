@@ -10,5 +10,10 @@ namespace Chess.Domain.Entities
         {
             this.Position = position;
         }
+
+        public bool AcceptDestiny(string destination)
+        {
+            return true;
+        }
     }
 }
