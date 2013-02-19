@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Application\SetUpMatchTest.cs" />
     <Compile Include="Application\MoveTest.cs" />
+    <Compile Include="Domain\BoardTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,9 +69,7 @@
       <Name>Chess.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

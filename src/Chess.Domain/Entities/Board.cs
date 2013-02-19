@@ -7,10 +7,8 @@ namespace Chess.Domain.Entities
     public class Board
     {
         private readonly IList<Piece> _pieces = new List<Piece>();
-        //HACK: mantive para provavel futura validacao de boundaries do movimento
         private readonly int[] _rowPositions = new[] { 1, 2, 3, 4, 5, 6,7, 8 };
         private readonly char[] _columnPositions = new[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' };
-
 
         public Board(string boardConfiguration)
         {

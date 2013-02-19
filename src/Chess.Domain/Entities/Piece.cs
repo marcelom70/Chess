@@ -15,5 +15,14 @@ namespace Chess.Domain.Entities
         {
             return true;
         }
+
+        public override bool Equals(object obj)
+        {
+            var piece = obj as Piece;
+            if (piece == null)
+                return false;
+
+            return piece.Position == this.Position && piece.Colour == this.Colour && piece.GetType() == this.GetType();
+        }
     }
 }
