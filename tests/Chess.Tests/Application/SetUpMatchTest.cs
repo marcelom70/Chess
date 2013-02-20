@@ -3,6 +3,7 @@ using Chess.Application.Contracts;
 using Chess.Application.Contracts.DTOs;
 using EasyArchitecture.Configuration;
 using EasyArchitecture.IoC;
+using EasyArchitecture.Validation.Instance;
 using NUnit.Framework;
 
 namespace Chess.Tests.Application
@@ -39,8 +40,8 @@ namespace Chess.Tests.Application
             var blackPlayer = new PlayerDTO() {  Id = Guid.NewGuid() };
             var whitePlayer = new PlayerDTO() { Name = "marcelom", Id = Guid.NewGuid() };
 
-            Assert.That(() => facade.SetUpMatch(whitePlayer, blackPlayer), Throws.Exception);
-            //Assert.That(()=>facade.SetUpMatch(whitePlayer, blackPlayer), Throws.TypeOf<InvalidEntityException>());
+            //Assert.That(() => facade.SetUpMatch(whitePlayer, blackPlayer), Throws.Exception);
+            Assert.That(()=>facade.SetUpMatch(whitePlayer, blackPlayer), Throws.TypeOf<InvalidEntityException>());
         }
 
         [Test]
@@ -51,8 +52,8 @@ namespace Chess.Tests.Application
             var blackPlayer = new PlayerDTO() { Name = "henriquericcio", Id = Guid.NewGuid() };
             var whitePlayer = new PlayerDTO() { Name = "marcelom"};
 
-            Assert.That(() => facade.SetUpMatch(whitePlayer, blackPlayer), Throws.Exception);
-            //Assert.That(() => facade.SetUpMatch(whitePlayer, blackPlayer), Throws.TypeOf<InvalidEntityException>());
+            //Assert.That(() => facade.SetUpMatch(whitePlayer, blackPlayer), Throws.Exception);
+            Assert.That(() => facade.SetUpMatch(whitePlayer, blackPlayer), Throws.TypeOf<InvalidEntityException>());
         }
     }
 }
