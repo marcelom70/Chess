@@ -44,6 +44,9 @@ namespace Chess.Tests.Application
             var facade = Container.Resolve<IChessFacade>();
             const string samePosition = "A7A7";
             Assert.IsTrue(facade.DoMove(samePosition, _matchId)==null);
+
+            //HACK: use fluent way, instead
+            //Assert.That(facade.DoMove(samePosition, _matchId), Is.Null);
         }
 
 
