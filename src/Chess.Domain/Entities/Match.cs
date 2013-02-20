@@ -47,7 +47,7 @@ namespace Chess.Domain.Entities
 
             //verificar se a peca aceita seu destino hehe
             if (!piece.AcceptDestiny((string)destination))
-                throw new Exception();
+                return null;
 
             //verificar se ha outra peca no caminho do movimento (knight exception)
             return command;

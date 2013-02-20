@@ -37,5 +37,15 @@ namespace Chess.Tests.Application
             //Assert.That(()=> facade.DoMove(impossibleMove, _matchId)==null,Throws.Exception);
             Assert.Inconclusive("deve receber um comando de retorno dizendo que o movimento é impossível e este deve ser a verificação");
         }
+
+        [Test]
+        public void Can_move_to_the_same_position()
+        {
+            var facade = Container.Resolve<IChessFacade>();
+            const string samePosition = "A7A7";
+            Assert.IsTrue(facade.DoMove(samePosition, _matchId)==null);
+        }
+
+
     }
 }

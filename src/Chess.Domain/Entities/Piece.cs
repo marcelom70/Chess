@@ -1,3 +1,5 @@
+using System;
+
 namespace Chess.Domain.Entities
 {
     public abstract class Piece
@@ -13,7 +15,14 @@ namespace Chess.Domain.Entities
 
         public bool AcceptDestiny(string destination)
         {
-            return true;
+            if(destination == Position)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public override bool Equals(object obj)
@@ -24,5 +33,11 @@ namespace Chess.Domain.Entities
 
             return piece.Position == this.Position && piece.Colour == this.Colour && piece.GetType() == this.GetType();
         }
+
+        internal static int GetDistance(int origin, int destiny)
+        {
+            return Math.Abs(origin - destiny);
+        }
+
     }
 }
