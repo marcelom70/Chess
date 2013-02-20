@@ -40,7 +40,6 @@ namespace Chess.Tests.Application
             var blackPlayer = new PlayerDTO() {  Id = Guid.NewGuid() };
             var whitePlayer = new PlayerDTO() { Name = "marcelom", Id = Guid.NewGuid() };
 
-            //Assert.That(() => facade.SetUpMatch(whitePlayer, blackPlayer), Throws.Exception);
             Assert.That(()=>facade.SetUpMatch(whitePlayer, blackPlayer), Throws.TypeOf<InvalidEntityException>());
         }
 
@@ -52,7 +51,6 @@ namespace Chess.Tests.Application
             var blackPlayer = new PlayerDTO() { Name = "henriquericcio", Id = Guid.NewGuid() };
             var whitePlayer = new PlayerDTO() { Name = "marcelom"};
 
-            //Assert.That(() => facade.SetUpMatch(whitePlayer, blackPlayer), Throws.Exception);
             Assert.That(() => facade.SetUpMatch(whitePlayer, blackPlayer), Throws.TypeOf<InvalidEntityException>());
         }
     }
