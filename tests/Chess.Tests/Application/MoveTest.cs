@@ -42,13 +42,17 @@ namespace Chess.Tests.Application
         public void Can_move_to_the_same_position()
         {
             var facade = Container.Resolve<IChessFacade>();
-            const string samePosition = "A7A7";
-            Assert.IsTrue(facade.DoMove(samePosition, _matchId)==null);
-
-            //HACK: use fluent way, instead
-            //Assert.That(facade.DoMove(samePosition, _matchId), Is.Null);
+            const string samePosition = "a7a7";
+            Assert.That(facade.DoMove(samePosition, _matchId), Is.Null);
         }
 
+        [Test]
+        public void Can_move_to_an_inexisting_position()
+        {
+            var facade = Container.Resolve<IChessFacade>();
+            const string inexistingPosition = "a7z9";
+            Assert.That(facade.DoMove(inexistingPosition, _matchId), Is.Null);
+        }
 
     }
 }

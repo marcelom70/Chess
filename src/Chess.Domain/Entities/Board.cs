@@ -7,7 +7,7 @@ namespace Chess.Domain.Entities
     public class Board
     {
         private readonly IList<Piece> _pieces = new List<Piece>();
-        private readonly int[] _rowPositions = new[] { 1, 2, 3, 4, 5, 6,7, 8 };
+        private readonly int[] _rowPositions = new[] { 1, 2, 3, 4, 5, 6, 7, 8 };
         private readonly char[] _columnPositions = new[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' };
 
         public Board(string boardConfiguration)
@@ -62,6 +62,17 @@ namespace Chess.Domain.Entities
                 columnCount = 0;
                 rowCount--;
             }
+        }
+
+        public bool AcceptPosition(string position)
+        {
+            var charArray = position.ToCharArray();
+            var column = charArray[0];
+            if (!char.IsNumber(column))
+                return false;
+
+            var row = charArray[1];
+            return true;
         }
 
         public Piece GetPiece(string position)
