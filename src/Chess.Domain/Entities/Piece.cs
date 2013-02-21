@@ -15,10 +15,13 @@ namespace Chess.Domain.Entities
 
         public bool AcceptDestiny(string destination)
         {
-            if(destination == Position)
-                return false;
-            else
-                return true;
+            //if(destination == Position)
+            //    return false;
+            //else
+            //    return true;
+
+            //HACK: better than older code, han?
+            return destination != Position;
         }
 
         public override bool Equals(object obj)
