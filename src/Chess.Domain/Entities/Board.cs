@@ -66,12 +66,16 @@ namespace Chess.Domain.Entities
 
         public bool AcceptPosition(string position)
         {
-            var charArray = position.ToCharArray();
+            var charArray = position.ToUpper().ToCharArray();
             var column = charArray[0];
-            if (!char.IsNumber(column))
+            var row = charArray[1];
+
+            if(!_rowPositions.Contains(row))
                 throw new Exception("Invalid position");
 
-            var row = charArray[1];
+            if (!_rowPositions.Contains(column))
+                throw new Exception("Invalid position");
+
             return true;
         }
 

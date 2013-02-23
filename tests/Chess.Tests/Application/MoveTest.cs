@@ -54,5 +54,12 @@ namespace Chess.Tests.Application
             Assert.That(()=>facade.DoMove(inexistingPosition, _matchId), Throws.TypeOf<Exception>());
         }
 
+        [Test]
+        public void Is_player_turn()
+        {
+            var facade = Container.Resolve<IChessFacade>();
+            const string validMoveForBlackPlayer = "c7c5";
+            Assert.That(() => facade.DoMove(validMoveForBlackPlayer, _matchId), Throws.TypeOf<Exception>());
+        }
     }
 }
