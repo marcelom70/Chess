@@ -7,7 +7,7 @@
 *.user
 
 # nuget
-#packages/
+packages/
 
 # resharper
 _ReSharper*
