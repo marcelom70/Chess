@@ -23,6 +23,7 @@ namespace Chess.Domain.Entities
         public void Initialize(string boardConfiguration)
         {
             _board = new Board(boardConfiguration);
+            //Moves = new List<Move>();
         }
 
         public string Move(string command)
@@ -45,6 +46,9 @@ namespace Chess.Domain.Entities
             //se nao houver peca?
             if (piece == null)
                 throw new Exception();
+            
+            if(Moves.Count % 2 == 0)
+               throw new Exception("It´s not supposed to be this player turn");
 
             //verificar se a peca aceita seu destino hehe
             if (!piece.AcceptDestiny((string)destination))
