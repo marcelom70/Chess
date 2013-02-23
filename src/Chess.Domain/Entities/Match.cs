@@ -56,7 +56,7 @@ namespace Chess.Domain.Entities
 
             //adicionar à lista de movimentos (se tudo deu certo)
             //por enquanto coloquei o resultado como command
-            this.Moves.Add(new Move(){Origin = orign,Destiny = destination,Result = command});
+            //this.Moves.Add(new Move(){Origin = orign,Destiny = destination,Result = command});
 
 
             //verificar se ha outra peca no caminho do movimento (knight exception)
