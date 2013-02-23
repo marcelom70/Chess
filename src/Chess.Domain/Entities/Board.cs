@@ -69,7 +69,7 @@ namespace Chess.Domain.Entities
             var charArray = position.ToCharArray();
             var column = charArray[0];
             if (!char.IsNumber(column))
-                return false;
+                throw new Exception("Invalid position");
 
             var row = charArray[1];
             return true;

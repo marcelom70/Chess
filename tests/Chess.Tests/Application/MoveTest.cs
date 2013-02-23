@@ -43,7 +43,7 @@ namespace Chess.Tests.Application
         {
             var facade = Container.Resolve<IChessFacade>();
             const string samePosition = "a7a7";
-            Assert.That(facade.DoMove(samePosition, _matchId), Is.Null);
+            Assert.That(() => facade.DoMove(samePosition, _matchId), Throws.TypeOf<Exception>());
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace Chess.Tests.Application
         {
             var facade = Container.Resolve<IChessFacade>();
             const string inexistingPosition = "a7z9";
-            Assert.That(facade.DoMove(inexistingPosition, _matchId), Is.Null);
+            Assert.That(()=>facade.DoMove(inexistingPosition, _matchId), Throws.TypeOf<Exception>());
         }
 
     }

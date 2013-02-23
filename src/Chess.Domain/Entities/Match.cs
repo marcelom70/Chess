@@ -36,8 +36,9 @@ namespace Chess.Domain.Entities
             var destination = command.Substring(2, 2);
 
             //validar limites do board
-
-
+            _board.AcceptPosition(orign);
+            _board.AcceptPosition(destination);
+            
             //localizar a peca
             var piece = _board.GetPiece(orign);
 
@@ -47,7 +48,7 @@ namespace Chess.Domain.Entities
 
             //verificar se a peca aceita seu destino hehe
             if (!piece.AcceptDestiny((string)destination))
-                return null;
+                throw new Exception("Can´t move to the same position");
 
             //verificar se ha outra peca no caminho do movimento (knight exception)
             return command;
