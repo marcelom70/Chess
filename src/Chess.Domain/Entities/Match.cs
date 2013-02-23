@@ -26,22 +26,14 @@ namespace Chess.Domain.Entities
             //Moves = new List<Move>();
         }
 
-        public string Move(string command)
+        public string Move(Path path)
         {
-            command = command.ToUpperInvariant();
-
-            //validar command
-
-            //obter posicoes
-            var orign = command.Substring(0, 2);
-            var destination = command.Substring(2, 2);
-
             //validar limites do board
-            _board.AcceptPosition(orign);
-            _board.AcceptPosition(destination);
+            _board.AcceptPosition(path.Origin);
+            _board.AcceptPosition(path.Destiny);
             
             //localizar a peca
-            var piece = _board.GetPiece(orign);
+            var piece = _board.GetPiece(path.Origin);
 
             //se nao houver peca?
             if (piece == null)
@@ -51,20 +43,16 @@ namespace Chess.Domain.Entities
                throw new Exception("It´s not supposed to be this player turn");
 
             //verificar se a peca aceita seu destino hehe
-            if (!piece.AcceptDestiny((string)destination))
+            if (!piece.AcceptDestiny(path.Destiny))
                 throw new Exception("Can´t move to the same position");
 
             //adicionar à lista de movimentos (se tudo deu certo)
             //por enquanto coloquei o resultado como command
-            //this.Moves.Add(new Move(){Origin = orign,Destiny = destination,Result = command});
+            Moves.Add(new Move(path));
 
 
             //verificar se ha outra peca no caminho do movimento (knight exception)
-            return command;
-            //...
-
-            
-            //throw new System.NotImplementedException();
+            return path.ToString();
         }
     }
 }

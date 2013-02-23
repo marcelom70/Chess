@@ -46,16 +46,22 @@ namespace Chess.Application
             return CreateMatch(whitePlayerDTO, blackPlayerDTO, boardConfiguration);
         }
 
-        public string DoMove(string command, Guid matchId) { 
-        
-            //command like "e2e4" notacao completa ou abreviada
+        public string DoMove(string command, Guid matchId)
+        {
+            //TODO: aumentar a quandiade de precondicoes, utilizar design by contract
+            if (string.IsNullOrEmpty(command))
+                throw new ArgumentNullException("command");
+
+            var path = Translator.This(command).To<Path>();
+
+            Validator.This(path).IsValid();
 
             var qbe = new Match() {Id = matchId};
             var match = _repository.Get(qbe).FirstOrDefault();
             if (match == null) 
-                return null; 
-            
-            return match.Move(command);
+                return null;
+
+            return match.Move(path);
 
             //retornar de alguma forma - ilegal move, move ok, etc
         }

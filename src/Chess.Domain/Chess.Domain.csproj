@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Entities\Bishop.cs" />
     <Compile Include="Entities\Board.cs" />
+    <Compile Include="Entities\Path.cs" />
     <Compile Include="Entities\Pawn.cs" />
     <Compile Include="Entities\King.cs" />
     <Compile Include="Entities\Knight.cs" />
