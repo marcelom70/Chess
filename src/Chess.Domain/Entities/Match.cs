@@ -50,11 +50,16 @@ namespace Chess.Domain.Entities
             if (!piece.AcceptDestiny((string)destination))
                 throw new Exception("Can´t move to the same position");
 
+            //adicionar à lista de movimentos (se tudo deu certo)
+            //por enquanto coloquei o resultado como command
+            this.Moves.Add(new Move(){Origin = orign,Destiny = destination,Result = command});
+
+
             //verificar se ha outra peca no caminho do movimento (knight exception)
             return command;
             //...
 
-            //adicionar à lista de movimentos
+            
             //throw new System.NotImplementedException();
         }
     }
