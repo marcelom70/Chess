@@ -4,7 +4,7 @@ namespace Chess.Domain.Entities
     {
         public Bishop(string colour, string position)
         {
-            Colour = colour;
+            Color = colour;
             Position = position;
         }
     }

@@ -4,7 +4,7 @@ namespace Chess.Domain.Entities
 {
     public abstract class Piece
     {
-        public string Colour { get; protected set; }
+        public string Color { get; protected set; }
 
         public string Position { get; protected set; }
 
@@ -30,7 +30,7 @@ namespace Chess.Domain.Entities
             if (piece == null)
                 return false;
 
-            return piece.Position == this.Position && piece.Colour == this.Colour && piece.GetType() == this.GetType();
+            return piece.Position == this.Position && piece.Color == this.Color && piece.GetType() == this.GetType();
         }
 
         internal static int GetDistance(int origin, int destiny)

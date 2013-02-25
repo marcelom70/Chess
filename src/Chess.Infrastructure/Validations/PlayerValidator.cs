@@ -10,7 +10,7 @@ namespace Chess.Infrastructure.Validations
         public PlayerValidator()
         {
             AddRule(x => x.Id == Guid.Empty, "Player should have identification");
-            AddRule(x => string.IsNullOrEmpty(x.Name), "Player must to have a name");
+            AddRule(x => string.IsNullOrEmpty(x.Name), "Player must have a name");
         }
     }
 }

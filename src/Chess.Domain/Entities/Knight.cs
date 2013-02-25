@@ -4,7 +4,7 @@ namespace Chess.Domain.Entities
     {
         public Knight(string colour, string position)
         {
-            Colour = colour;
+            Color = colour;
             Position = position;
         }
     }

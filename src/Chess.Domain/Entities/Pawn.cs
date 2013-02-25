@@ -4,7 +4,7 @@
     {
         public Pawn(string colour, string position)
         {
-            Colour = colour;
+            Color = colour;
             Position = position;
         }
     }
