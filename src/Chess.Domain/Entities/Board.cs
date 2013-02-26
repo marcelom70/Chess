@@ -68,12 +68,12 @@ namespace Chess.Domain.Entities
         {
             var charArray = position.ToUpper().ToCharArray();
             var column = charArray[0];
-            var row = charArray[1];
+            var row = int.Parse(charArray[1].ToString());
 
             if(!_rowPositions.Contains(row))
                 throw new Exception("Invalid position");
 
-            if (!_rowPositions.Contains(column))
+            if (!_columnPositions.Contains(column))
                 throw new Exception("Invalid position");
 
             return true;

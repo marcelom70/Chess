@@ -38,7 +38,7 @@ namespace Chess.Domain.Entities
             //se nao houver peca?
             if (piece == null)
                 throw new Exception();
-            Moves.Add(new Move(path));
+            
             if (Moves.Count % 2 == (piece.Color == "black" ? 0 : 1))
                throw new Exception("It´s not supposed to be this player turn");
 
