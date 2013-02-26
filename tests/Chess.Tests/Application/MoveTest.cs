@@ -29,37 +29,36 @@ namespace Chess.Tests.Application
         }
 
         [Test]
-        public void Can_move_an_inexistent_piece()
+        public void Cannot_move_an_inexistent_piece()
         {
             var facade = Container.Resolve<IChessFacade>();
             const string impossibleMove = "e4e8";
 
-            //Assert.That(()=> facade.DoMove(impossibleMove, _matchId)==null,Throws.Exception);
-            Assert.Inconclusive("deve receber um comando de retorno dizendo que o movimento é impossível e este deve ser a verificação");
+            Assert.That(()=> facade.DoMove(impossibleMove, _matchId),Throws.Exception);
         }
 
         [Test]
-        public void Can_move_to_the_same_position()
+        public void Cannot_move_to_the_same_position()
         {
             var facade = Container.Resolve<IChessFacade>();
             const string samePosition = "a7a7";
-            Assert.That(() => facade.DoMove(samePosition, _matchId), Throws.TypeOf<Exception>());
+            Assert.That(() => facade.DoMove(samePosition, _matchId), Throws.Exception);
         }
 
         [Test]
-        public void Can_move_to_an_inexisting_position()
+        public void Cannot_move_to_an_inexisting_position()
         {
             var facade = Container.Resolve<IChessFacade>();
             const string inexistingPosition = "a7z9";
-            Assert.That(()=>facade.DoMove(inexistingPosition, _matchId), Throws.TypeOf<Exception>());
+            Assert.That(()=>facade.DoMove(inexistingPosition, _matchId), Throws.Exception);
         }
 
         [Test]
-        public void Is_player_turn()
+        public void Should_not_move_on_other_player_turn()
         {
             var facade = Container.Resolve<IChessFacade>();
             const string validMoveForBlackPlayer = "c7c5";
-            Assert.That(() => facade.DoMove(validMoveForBlackPlayer, _matchId), Throws.TypeOf<Exception>());
+            Assert.That(() => facade.DoMove(validMoveForBlackPlayer, _matchId), Throws.Exception);
         }
     }
 }
