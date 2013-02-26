@@ -56,14 +56,8 @@ namespace Chess.Application
 
             Validator.This(path).IsValid();
 
-            var qbe = new Match() {Id = matchId};
-            var match = _repository.Get(qbe).FirstOrDefault();
-            if (match == null) 
-                return null;
-
-            return match.Move(path);
-
-            //retornar de alguma forma - ilegal move, move ok, etc
+            var match = _repository.Get(matchId);
+            return match == null ? null : match.Move(path);
         }
     }
 }
