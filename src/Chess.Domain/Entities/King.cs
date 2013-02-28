@@ -5,7 +5,19 @@ namespace Chess.Domain.Entities
         public King(string colour, string position)
         {
             Color = colour;
-            Position = position;
+            AssignPosition(position);
         }
+
+        public override bool AcceptDestiny(string destination)
+        {
+            if (!base.AcceptDestiny(destination))
+                return false;
+            else
+            {
+               
+            }
+            
+        }
+
     }
 }

@@ -5,7 +5,7 @@ namespace Chess.Domain.Entities
         public Queen(string colour, string position)
         {
             Color = colour;
-            Position = position;
+            AssignPosition(position);
         }
     }
 }

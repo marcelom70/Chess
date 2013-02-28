@@ -5,7 +5,7 @@
         public Pawn(string colour, string position)
         {
             Color = colour;
-            Position = position;
+            AssignPosition(position);
         }
     }
 }

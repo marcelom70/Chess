@@ -5,7 +5,7 @@ namespace Chess.Domain.Entities
         public Rook(string colour, string position)
         {
             Color = colour;
-            Position = position;
+            AssignPosition(position);
         }
     }
 }
