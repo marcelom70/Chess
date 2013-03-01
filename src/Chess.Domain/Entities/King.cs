@@ -14,9 +14,9 @@ namespace Chess.Domain.Entities
                 return false;
             else
             {
-               
+                return GetDistance(GetRow(Position), GetRow(destination)) < 2 &
+                       GetDistance(GetColumn(Position), GetColumn(destination)) < 2;
             }
-            
         }
 
     }
