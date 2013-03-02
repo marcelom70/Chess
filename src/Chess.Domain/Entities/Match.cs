@@ -44,7 +44,7 @@ namespace Chess.Domain.Entities
 
             //verificar se a peca aceita seu destino hehe
             if (!piece.AcceptDestiny(path.Destiny))
-                throw new Exception("Can´t move to the same position");
+                throw new Exception("Can´t move to this position");
 
             //adicionar à lista de movimentos (se tudo deu certo)
             //por enquanto coloquei o resultado como command
