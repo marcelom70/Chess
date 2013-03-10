@@ -1,6 +1,6 @@
 ﻿using System;
 using Chess.Domain.Entities;
-using EasyArchitecture.Persistence;
+using EasyArchitecture.Mechanisms.Persistence;
 
 namespace Chess.Domain.Repositories
 {

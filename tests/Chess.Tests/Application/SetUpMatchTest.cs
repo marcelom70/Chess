@@ -2,8 +2,8 @@
 using Chess.Application.Contracts;
 using Chess.Application.Contracts.DTOs;
 using EasyArchitecture.Configuration;
-using EasyArchitecture.IoC;
-using EasyArchitecture.Validation.Instance;
+using EasyArchitecture.Instances.Validation;
+using EasyArchitecture.Mechanisms.IoC;
 using NUnit.Framework;
 
 namespace Chess.Tests.Application

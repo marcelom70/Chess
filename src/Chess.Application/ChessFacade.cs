@@ -1,12 +1,10 @@
 ﻿using Chess.Application.Contracts;
 using Chess.Application.Contracts.DTOs;
-using Chess.Domain;
 using System;
-using System.Linq;
 using Chess.Domain.Entities;
 using Chess.Domain.Repositories;
-using EasyArchitecture.Translation;
-using EasyArchitecture.Validation;
+using EasyArchitecture.Mechanisms.Translation;
+using EasyArchitecture.Mechanisms.Validation;
 
 namespace Chess.Application
 {

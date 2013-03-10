@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Chess.Domain.Exceptions;
 
 namespace Chess.Domain.Entities
 {
@@ -28,30 +29,24 @@ namespace Chess.Domain.Entities
 
         public string Move(Path path)
         {
-            //validar limites do board
             _board.AcceptPosition(path.Origin);
             _board.AcceptPosition(path.Destiny);
             
-            //localizar a peca
             var piece = _board.GetPiece(path.Origin);
-
-            //se nao houver peca?
             if (piece == null)
-                throw new Exception("There's no piece at this position");
+                throw new IllegalMovementException("There's no piece at this position");
             
             if (Moves.Count % 2 == (piece.Color == "black" ? 0 : 1))
-               throw new Exception("It´s not supposed to be this player turn");
+               throw new IllegalMovementException("It´s not supposed to be this player turn");
 
-            //verificar se a peca aceita seu destino hehe
             if (!piece.AcceptDestiny(path.Destiny))
-                throw new Exception("Can´t move to this position");
-
-            //adicionar à lista de movimentos (se tudo deu certo)
-            //por enquanto coloquei o resultado como command
-            Moves.Add(new Move(path));
-
+                throw new IllegalMovementException("Can´t move to this position");
 
             //verificar se ha outra peca no caminho do movimento (knight exception)
+            
+
+            Moves.Add(new Move(path));
+
             return path.ToString();
         }
     }

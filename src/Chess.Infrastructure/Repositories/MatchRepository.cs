@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Chess.Domain;
 using Chess.Domain.Entities;
 using Chess.Domain.Repositories;
-using EasyArchitecture.Persistence;
+using EasyArchitecture.Mechanisms.Persistence;
 
 namespace Chess.Infrastructure.Repositories
 {

@@ -1,5 +1,5 @@
 ﻿using Chess.Domain.Entities;
-using EasyArchitecture.Translation.Plugin.BultIn;
+using EasyArchitecture.Plugins.BultIn.Translation;
 
 namespace Chess.Infrastructure.Translation
 {
