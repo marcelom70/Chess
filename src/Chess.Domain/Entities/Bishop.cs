@@ -12,12 +12,9 @@ namespace Chess.Domain.Entities
         {
             if (!base.AcceptDestiny(destination))
                 return false;
-            else
-            {
-                return GetDistance(GetRow(Position), GetRow(destination)) ==
-                       GetDistance(GetColumn(Position), GetColumn(destination));
-            }
+            
+            return GetDistance(GetRow(Position), GetRow(destination)) ==
+                   GetDistance(GetColumn(Position), GetColumn(destination));
         }
-
     }
 }
