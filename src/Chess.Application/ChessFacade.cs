@@ -5,6 +5,7 @@ using Chess.Domain.Entities;
 using Chess.Domain.Repositories;
 using EasyArchitecture.Mechanisms.Translation;
 using EasyArchitecture.Mechanisms.Validation;
+using SimpleContracts;
 
 namespace Chess.Application
 {
@@ -46,9 +47,7 @@ namespace Chess.Application
 
         public string DoMove(string command, Guid matchId)
         {
-            //TODO: aumentar a quandiade de precondicoes, utilizar design by contract
-            if (string.IsNullOrEmpty(command))
-                throw new ArgumentNullException("command");
+            Check.Require(string.IsNullOrEmpty(command),"command can't be null or empty");
 
             var path = Translator.This(command).To<Path>();
 
