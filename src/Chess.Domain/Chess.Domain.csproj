@@ -32,10 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyArchitecture, Version=1.0.4804.23083, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\EasyArchitecture.1.0.4811\lib\net40\EasyArchitecture.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -60,9 +56,6 @@
     <Compile Include="Entities\Queen.cs" />
     <Compile Include="Entities\Rook.cs" />
     <Compile Include="Repositories\IMatchRepository.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
