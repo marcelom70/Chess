@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EasyArchitecture, Version=1.0.4883.10812, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EasyArchitecture.1.0.4843\lib\net40\EasyArchitecture.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleContracts, Version=1.0.4821.27782, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\SimpleContracts.1.0.4821\lib\net40\SimpleContracts.dll</HintPath>
